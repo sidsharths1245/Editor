@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photopea</title>
+  <title>Photopea Save Example</title>
   <style>
     /* Remove default margin and padding, and set the body to occupy the full viewport */
     body, html {
@@ -17,7 +17,6 @@
       width: 100%;
       height: 100%;
       border: none;
-      display: block; /* Ensure the iframe is a block element */
     }
 
     /* Hide the Save button completely */
@@ -47,20 +46,6 @@
 
     // Automatically press the save button every 2 minutes
     setInterval(saveFile, 180000); 
-
-    // Layout adjustment based on mouse movement
-    const qSel = sel => document.querySelector(sel);
-    const inter = setInterval(() => {
-      const canvas = qSel('canvas');
-      if (!canvas) return;
-      clearInterval(inter);
-      canvas.style.margin = 'auto';
-      canvas.parentNode.addEventListener('mousemove', e => {
-        qSel('.photopea').lastChild.style.display = 'none';
-        const width = innerWidth - document.querySelector('.rightbar').clientWidth - document.querySelector('.sbar').clientWidth - 30;
-        qSel('.panelhead').style.maxWidth = qSel('.pbody').parentNode.style.width = width + 'px';
-      });
-    }, 500);
   </script>
 </body>
 </html>
